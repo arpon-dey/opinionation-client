@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Favorite Travel Destinations",
+    "description": "Share your top travel destinations and experiences.",
+    "image": "travel1.jpg",
+    "category": "Travel"
+  },
+  {
+    "title": "Bucket List Adventures",
+    "description": "Tell us about the adventures on your travel bucket list.",
+    "image": "travel2.jpg",
+    "category": "Travel"
+  },
+  {
+    "title": "Future Tech Trends",
+    "description": "Discuss upcoming trends and innovations in technology.",
+    "image": "tech1.jpg",
+    "category": "Technology"
+  },
+  {
+    "title": "Gadgets Wishlist",
+    "description": "Share the tech gadgets you wish to own in the future.",
+    "image": "tech2.jpg",
+    "category": "Technology"
+  },
+  {
+    "title": "Top Movie Recommendations",
+    "description": "Recommend your all-time favorite movies to fellow cinephiles.",
+    "image": "movie1.jpg",
+    "category": "Movies"
+  },
+  {
+    "title": "Classic Films Poll",
+    "description": "Vote for your favorite classic films from different genres.",
+    "image": "movie2.jpg",
+    "category": "Movies"
+  }
+]
