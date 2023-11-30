@@ -82,6 +82,7 @@ const SurveyDetails = () => {
         });
         const surveyItem = {
             surveyId: survey._id,
+            surveyName: survey.name,
             surveyorName: user.displayName,
             query1: data.query1,
             query2: data.query2,
@@ -192,18 +193,10 @@ const SurveyDetails = () => {
         }
     }
     const handleReportSubmit = async (e) => {
-
-        e.preventDefault()
-        const form = e.target
-        const report = form.report.value
-        const userReport = {
-            report: report,
-            reporterEmail: user.email,
-            surveyId: survey._id
-
-        }
-
-        const res = await axiosSecure.post('/report', userReport)
+        e.preventDefault();
+        const form = e.target;
+        const report = form.report.value;
+        
         if (isAdmin || isSurveyor) {
             Swal.fire({
                 icon: 'error',
@@ -214,16 +207,31 @@ const SurveyDetails = () => {
             });
             return;
         }
-        if (res.data.insertedId) {
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: 'report added',
-                showConfirmButton: false,
-                timer: 1500
-            });
+    
+        const userReport = {
+            report: report,
+            reporterEmail: user.email,
+            surveyId: survey._id
+        };
+    
+        try {
+            const res = await axiosSecure.post('/report', userReport);
+    
+            if (res.data.insertedId) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: 'Report added',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        } catch (error) {
+            console.error('Error submitting report:', error);
+            
         }
-    }
+    };
+    
     useEffect(() => {
         axiosSecure.get('/comment')
             .then((res) => {

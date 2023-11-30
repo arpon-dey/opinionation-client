@@ -32,7 +32,7 @@ const Tastimonial = () => {
                 {
                     reviews.map(review => <SwiperSlide
                         key={review._id}
-                        className='text-center px-48'
+                        className='text-center md:px-48'
                     >
                         <div>
                             <Rating className='w-1/2 mx-auto  my-4' style={{ maxWidth: 250 }} value={review.rating} readOnly />

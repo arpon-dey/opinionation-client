@@ -40,9 +40,9 @@ const AllVote = () => {
 
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
 
-            <div className="overflow-x-auto ">
+            <div className="overflow-x-scroll ">
                 <table className="table ">
                     {/* head */}
                     <thead>

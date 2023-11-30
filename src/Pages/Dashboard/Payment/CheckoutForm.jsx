@@ -133,7 +133,7 @@ const CheckoutForm = () => {
 
                 <div className='  ' id="card-element">
                     <CardElement
-                        className='bg-gradient-to-b from-slate-600 to-slate-400 p-4 rounded-lg'
+                        className='bg-gradient-to-b from-gray-500 to-slate-400 p-4 rounded-lg'
                         options={{
 
                             style: {

@@ -19,11 +19,12 @@ const SurveyCard = ({ SurveyCard }) => {
     
     return (
         <div>
-            <div className="card w-96 h-96  bg-base-100 shadow-xl">
+            <div className="card lg:w-96 h-96  bg-base-100 shadow-xl">
                 <figure><img src={SurveyCard?.image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{SurveyCard?.name}</h2>
                     <p>{SurveyCard?.description.slice(0, 40)}... <span className="text-red-500 font-semibold">read more</span> </p>
+                    <p>Category: <span className="font-semibold">{SurveyCard.category}</span></p>
                    
                     <div className="card-actions justify-end">
                         <Link to={`/survey/${SurveyCard?._id}`} className="btn btn-accent">Join in survey</Link>

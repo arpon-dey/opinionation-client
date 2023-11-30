@@ -11,9 +11,9 @@ const Dashboard = () => {
     const [isSurveyor] = useSurveyor()
     console.log('is surveyor', isSurveyor);
     return (
-        <div className="flex">
-            <div className="w-64 min-h-screen bg-gradient-to-r from-teal-700 to-teal-400 text-white font-semibold">
-                <ul className="menu">
+        <div className=" flex flex-col lg:flex-row ">
+            <div className="w-full lg:w-64 lg:min-h-screen bg-gradient-to-r from-teal-700 to-teal-400 text-white font-semibold">
+                <ul className="menu grid grid-cols-2 lg:grid-cols-1 justify-between">
                     {   isSurveyor ? (<>
                         <li>
                             <NavLink to='/dashboard/surveyorHome'>
@@ -40,7 +40,7 @@ const Dashboard = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to='/dashboard/bookings'>
+                            <NavLink to='/dashboard/adminFeedback'>
                                 <FaCircleInfo></FaCircleInfo>
                                 Admin feedback
                             </NavLink>
@@ -99,13 +99,13 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/reservation'>
+                                <NavLink to='/dashboard/payment'>
                                     <FaMoneyCheck></FaMoneyCheck>
                                     My payment
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/dashboard/payment'>
+                                <NavLink to='/dashboard/mysurvey'>
                                     <FaListCheck></FaListCheck>
                                    My survey
                                 </NavLink>
@@ -116,7 +116,7 @@ const Dashboard = () => {
 
                     {/*shared nav links */}
 
-                    <div className="divider"></div>
+                    <div className="divider "></div>
                     <li>
                         <NavLink to='/'>
                             Home
@@ -128,12 +128,12 @@ const Dashboard = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/order/salad'>
+                        <NavLink to='/about'>
                             About us
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/order/salad'>
+                        <NavLink to='/contact'>
                             Contact
                         </NavLink>
                     </li>

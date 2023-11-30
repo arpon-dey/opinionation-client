@@ -7,7 +7,7 @@ const Features = () => {
     return (
         <div className="mb-16">
             <SectionTitle heading='Features' subHeading='special features'></SectionTitle>
-            <div className="flex justify-center items-center gap-8 ">
+            <div className="md:flex grid grid-cols-1 mx-8  justify-center items-center gap-8 ">
             <div className="text-center rounded-xl bg-teal-200 p-8">
                 <div className="flex flex-col items-center">
                     <FaList className="mb-4 text-7xl" />

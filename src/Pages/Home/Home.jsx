@@ -1,5 +1,6 @@
 import Banner from "./Banner/Banner";
 import Faq from "./Faq/Faq";
+import FeaturedSurvey from "./FeaturedSurvey/FeaturedSurvey";
 import Features from "./Features/Features";
 import Latest from "./LatestSurvey/Latest";
 import Tastimonial from "./Tastimonial/Tastimonial";
@@ -9,7 +10,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Latest></Latest>
-            {/* <MostVoted></MostVoted> */}
+            <FeaturedSurvey></FeaturedSurvey>
             <Features></Features>
             <Tastimonial></Tastimonial>
             <Faq></Faq>

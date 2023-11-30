@@ -9,6 +9,8 @@ const AllUsers = () => {
 
     const axiosSecure = useAxiosSecure()
     const [ sortedUsers, setSortedUsers] = useState([])
+  
+
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
@@ -82,6 +84,7 @@ const AllUsers = () => {
         console.log(sortedUsers);
         setSortedUsers(sortedUsers)
     };
+    
 
 
     return (

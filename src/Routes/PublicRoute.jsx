@@ -17,6 +17,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Survey from "../Pages/Survey/Survey";
 import SurveyDetails from "../Pages/Survey/SurveyDetails";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from './PrivateRoute';
 
 
 
@@ -35,8 +37,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/survey/:id',
-                element: <SurveyDetails></SurveyDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/survey/${params.id}`)
+                element:<PrivateRoute><SurveyDetails></SurveyDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://opinio-nation-server.vercel.app/survey/${params.id}`)
             },
             {
                 path: '/login',
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <Register></Register>
+            },
+            {
+                path: '*',
+                element: <div>404 not found</div>
             }
         ]
     },
@@ -71,8 +77,8 @@ const router = createBrowserRouter([
             },
             {
                 path: 'survey/update/:id',
-                element: <UpdateSurvey />,
-                loader: ({ params }) => fetch(`http://localhost:5000/survey/update/${params.id}`),
+                element:<UpdateSurvey />,
+                loader: ({ params }) => fetch(`https://opinio-nation-server.vercel.app/survey/update/${params.id}`),
             },
             {
                 path: 'reports',
@@ -84,19 +90,23 @@ const router = createBrowserRouter([
 
             {
                 path: 'users',
-                element: <AllUsers></AllUsers>
+                element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: 'allVote',
-                element: <AllVote></AllVote>
+                element: <PrivateRoute><AllVote></AllVote></PrivateRoute>
             },
             {
                 path: 'allPayment',
-                element: <AllPayment></AllPayment>
+                element: <AdminRoute><AllPayment></AllPayment></AdminRoute>
             },
             {
                 path: 'unpublish',
-                element: <UnpublishSurvey></UnpublishSurvey>
+                element: <AdminRoute><UnpublishSurvey></UnpublishSurvey></AdminRoute>
+            },
+            {
+                path: '*',
+                element: <div>404 not found</div>
             }
 
         ]
