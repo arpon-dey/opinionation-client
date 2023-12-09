@@ -21,3 +21,6 @@ A survey and pooling website,
 6. user can take part in multiple survey but cannot submit more than once for any single survey.
 
 
+Technology used: Reactjs, Tailwind css, NodeJs, ExpressJs, MongoDB, Firebase, JWT.
+
+
