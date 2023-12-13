@@ -87,7 +87,8 @@ const SurveyDetails = () => {
             query1: data.query1,
             query2: data.query2,
             voterEmail: user?.email,
-            time: formattedTime
+            time: formattedTime,
+            gems: 10
         }
         console.log(surveyItem);
 
@@ -100,9 +101,9 @@ const SurveyDetails = () => {
             setShowChart(true);
 
             Swal.fire({
-                position: "top-end",
+                position: "center",
                 icon: "success",
-                title: 'survey added to the menu successfully',
+                title: 'survey added to the menu successfully and you earned 10 💎 ',
                 showConfirmButton: false,
                 timer: 1500
             });

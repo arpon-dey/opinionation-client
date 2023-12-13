@@ -1,10 +1,34 @@
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-// import carte from '../../../assets/icon/icons8-fast-cart-100.png';
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import gem from '../../../assets/others/diamond.png';
+
 
 const Navbar = () => {
-
+    const axiosPublic = useAxiosPublic()
     const { user, logout } = useAuth()
+
+    const { data: gems = [] } = useQuery({
+        queryKey: ['gems'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/vote')
+            return res.data;
+        }
+
+    })
+    console.log('gems: ', gems);
+
+    const userGemsObjects = gems.filter(item => item.voterEmail === user?.email);
+    console.log('User Gems Objects: ', userGemsObjects);
+    const userGemsValues = userGemsObjects.map(item => item.gems ?? 0);
+    console.log('User Gems Values: ', userGemsValues);
+    const totalUserGemsValue = userGemsValues.reduce((total, value) => total + value, 0);
+    console.log('Total User Gems Value: ', totalUserGemsValue);
+  
+
+
+
     const handleSignOut = () => {
         logout()
     }
@@ -48,12 +72,22 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {
-                        user ? <div className="flex gap-4 items-center mr-4">
-                            <p className="font-bold">{user.displayName}</p>
-                            <img src={user?.photoURL} className="w-10 rounded-full" alt="" />
-                        </div> : <></>
-                    }
+
+                    <div>
+                        {
+                            user ? <div className="flex items-center">
+                                <div className="mr-2">
+                                    <button className="flex btn btn-sm rounded-2xl bg-gray-200 border-0">
+                                        <img src={gem} className="w-6" alt="" />
+                                        <p>{totalUserGemsValue ? totalUserGemsValue : 0}</p>
+                                    </button>
+                                </div>
+                                <div className="flex gap-4 items-center mr-4">
+                                    <p className="font-bold">{user.displayName}</p>
+                                    <img src={user?.photoURL} className="w-10 rounded-full" alt="" />
+                                </div></div> : <></>
+                        }
+                    </div>
                 </div>
 
             </div>

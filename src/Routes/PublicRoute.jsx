@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             {
                 path: '/survey/:id',
                 element:<PrivateRoute><SurveyDetails></SurveyDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://opinio-nation-server.vercel.app/survey/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/survey/${params.id}`)
             },
             {
                 path: '/login',
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
             {
                 path: 'survey/update/:id',
                 element:<UpdateSurvey />,
-                loader: ({ params }) => fetch(`https://opinio-nation-server.vercel.app/survey/update/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/survey/update/${params.id}`),
             },
             {
                 path: 'reports',
