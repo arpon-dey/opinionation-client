@@ -1,16 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import gem from '../../../assets/others/diamond.png';
 
 
 const Navbar = () => {
-    const [finalValue, setFinalValue] = useState(0)
     const axiosPublic = useAxiosPublic()
-    const axiosSecure = useAxiosSecure()
     const { user, logout } = useAuth()
 
     const { data: gems = [] } = useQuery({
@@ -22,17 +18,7 @@ const Navbar = () => {
 
     })
     console.log('gems: ', gems);
-    const { data: userRole = [] } = useQuery({
-        queryKey: ['userRole'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/user-role')
 
-
-            return res.data;
-        }
-    })
-    console.log('user-role is ', userRole.role);
-    const isProUser = userRole.role === 'proUser'
 
 
 
@@ -43,14 +29,6 @@ const Navbar = () => {
     const totalUserGemsValue = userGemsValues.reduce((total, value) => total + value, 0);
     console.log('Total User Gems Value: ', totalUserGemsValue);
 
-    useEffect(() => {
-        if (isProUser) {
-            const newFinalValue = totalUserGemsValue - 50;
-            setFinalValue(newFinalValue);
-        } else {
-            setFinalValue(totalUserGemsValue);
-        }
-    }, [isProUser, totalUserGemsValue]);
 
 
     const handleSignOut = () => {
@@ -103,7 +81,7 @@ const Navbar = () => {
                                 <div className="mr-2">
                                     <button className="flex btn btn-sm rounded-2xl bg-gray-200 border-0">
                                         <img src={gem} className="w-6" alt="" />
-                                        <p>{finalValue}</p>
+                                        <p>{totalUserGemsValue?totalUserGemsValue : 0 }</p>
                                     </button>
                                 </div>
                                 <div className="flex gap-4 items-center mr-4">
