@@ -3,6 +3,7 @@ import {
 } from "react-router-dom";
 import Dashboard from "../Layout/Dashboard";
 import Main from "../Layout/Main";
+import Contact from "../Pages/Contact/Contact";
 import AllPayment from "../Pages/Dashboard/AllPayment/AllPayment";
 import AllSurvey from "../Pages/Dashboard/AllSurvey/AllSurvey";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
@@ -17,6 +18,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Survey from "../Pages/Survey/Survey";
 import SurveyDetails from "../Pages/Survey/SurveyDetails";
+import Team from "../Pages/Team/Team";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from './PrivateRoute';
 
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
             {
                 path: '/signUp',
                 element: <Register></Register>
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>
+            },
+            {
+                path: '/team',
+                element: <Team></Team>
             },
             {
                 path: '*',

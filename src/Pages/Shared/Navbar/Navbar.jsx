@@ -39,7 +39,8 @@ const Navbar = () => {
         <li><Link to='/'> About us</Link></li>
         <li><Link to='/survey'> Surveys</Link></li>
         <li><Link to='/dashboard/payment'>Pro</Link></li>
-        <li><Link to='/order/salad'>Contact </Link></li>
+        <li><Link to='/contact'>Contact </Link></li>
+        <li><Link to='/team'>Team </Link></li>
         <li><Link to='/dashboard'>Dashboard </Link></li>
         {
             user ? <><li> <Link onClick={handleSignOut} className="">Logout</Link></li></> :
